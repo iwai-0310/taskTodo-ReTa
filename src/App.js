@@ -1,16 +1,25 @@
 import logo from './logo.svg';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Task from './components/Task';
 import './App.css';
 import TaskForm from './components/TaskForm';
 
 function App() {
-  //add state to handle tasks
-  const [tasks,setTasks]=useState([
-    { text: "cook dinner",taskDone: false },
-    { text: "take walk after dinner",taskDone: false },
-    { text: "brush before sleep",taskDone: false }
-  ]);
+
+  // Get tasks from localStorage or use default tasks
+  const initialTasks = JSON.parse(localStorage.getItem('tasks')) || [
+    { text: 'eat more fiber for dinner', taskDone: false },
+    { text: 'take a walk after dinner', taskDone: false },
+    { text: 'brush before sleep', taskDone: false },
+  ];
+
+  const [tasks, setTasks] = useState(initialTasks);
+
+  // Save tasks to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
   //New tasks with the text form current task added.
   const addNewTask= text=>{
     //create new array using spread and add text of new task
@@ -18,6 +27,7 @@ function App() {
     //update the tasks state with new Tasks
     setTasks(newTasks);
   }
+
   //function to handle completed tasks
   const completeTask=index=>{
     //copy the existing tasks array
