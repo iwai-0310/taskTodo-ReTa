@@ -38,9 +38,9 @@ function App() {
     setTasks(newTasks);
   }
   return (
-    <div className="app">
+    <div className="app flex justify-center items-center">
       {/* //list of tasks  */}
-      <div className='tasks-list'>
+      <div className='w-10/12 h-auto flex-col justify-center items-center my-10'>
       {/* map the list here */}
       {tasks.map((task,index)=>(
         // for every index pass the task as prop to Task component

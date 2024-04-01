@@ -13,7 +13,8 @@ const Task = ({ task, index, completeTask, removeTask }) => {
           <div className="flex-1 h-full">
             <div
               onClick={() => completeTask(index)}
-              className="flex items-center justify-center flex-1 h-full p-2 border border-green-500 text-white shadow rounded-lg"
+              className="flex items-center justify-center flex-1 h-full p-2 border border-green-500
+               text-white shadow rounded-lg cursor-pointer hover:border-2 hover:border-green-700"
             >
               <div className="relative">
                 <svg
@@ -36,7 +37,8 @@ const Task = ({ task, index, completeTask, removeTask }) => {
           <div className="flex-1 h-full">
             <div
               onClick={() => removeTask(index)}
-              className="flex items-center justify-center flex-1 h-full p-2 bg-red-500 text-white shadow rounded-lg"
+              className="flex items-center justify-center flex-1 h-full p-2 bg-red-500
+              cursor-pointer hover:border-2 border-black text-white shadow rounded-lg"
             >
               <div className="relative">
                 <svg
