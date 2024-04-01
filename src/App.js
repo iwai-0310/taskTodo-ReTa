@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import {useState} from 'react';
+import Task from './components/Task';
 import './App.css';
-const appTitle="A List you wish to be done !"
+
 
 function App() {
+  //add state to handle tasks
   const [tasks,setTasks]=useState([
     { text: "cook dinner" },
     { text: "take walk after dinner" },
@@ -11,10 +13,13 @@ function App() {
   ]);
   return (
     <div className="app">
-      //list of tasks 
+      {/* //list of tasks  */}
       <div className='tasks-list'>
-      //map the list here
-      task
+      {/* map the list here */}
+      {tasks.map((task,index)=>(
+        // for every index pass the task as prop to Task component
+        <Task key={index} index={index} task={task}/>
+      ))}
       </div>
     </div>
   );
