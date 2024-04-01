@@ -24,7 +24,17 @@ function App() {
     const newTasks=[...tasks];
     // Mark the task at  index to done
     newTasks[index].taskDone=true;
-    //update the task using useState
+    //update the task using State
+    setTasks(newTasks);
+  }
+
+  // function to delete tasks
+  const removeTask=index=>{
+     //copy the existing tasks array
+    const newTasks=[...tasks];
+     //remove the element with index
+    newTasks.splice(index,1);
+    //update the task list with state
     setTasks(newTasks);
   }
   return (
@@ -34,7 +44,8 @@ function App() {
       {/* map the list here */}
       {tasks.map((task,index)=>(
         // for every index pass the task as prop to Task component
-        <Task key={index} index={index} task={task} completeTask={completeTask}/>
+        <Task key={index} index={index} task={task} completeTask={completeTask}
+        removeTask={removeTask}/>
       ))}
       <TaskForm addNewTask={addNewTask}/>
       </div>

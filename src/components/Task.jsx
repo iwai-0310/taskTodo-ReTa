@@ -1,6 +1,6 @@
 import React from 'react'
 import completeTask from "../App"
-const Task = ({task,index,completeTask}) => {
+const Task = ({task,index,completeTask,removeTask}) => {
   return (
     <div className='task'
     style={{textDecoration:task.taskDone ? "line-through":""}}
@@ -8,6 +8,7 @@ const Task = ({task,index,completeTask}) => {
        {task.text}
        <div>
         <button onClick={()=>completeTask(index)}>DONE</button>
+        <button onClick={()=>removeTask(index)}>X</button>
        </div>
     </div>
   )
