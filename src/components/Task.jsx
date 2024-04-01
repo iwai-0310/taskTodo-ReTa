@@ -1,9 +1,14 @@
 import React from 'react'
-
-const Task = ({task}) => {
+import completeTask from "../App"
+const Task = ({task,index,completeTask}) => {
   return (
-    <div className='task'>
-       <h5>{task.text}</h5> 
+    <div className='task'
+    style={{textDecoration:task.taskDone ? "line-through":""}}
+    >
+       {task.text}
+       <div>
+        <button onClick={()=>completeTask(index)}>DONE</button>
+       </div>
     </div>
   )
 }

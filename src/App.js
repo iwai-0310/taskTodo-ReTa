@@ -19,7 +19,7 @@ function App() {
     setTasks(newTasks);
   }
   //function to handle completed tasks
-  const completTodo=index=>{
+  const completeTask=index=>{
     //copy the existing tasks array
     const newTasks=[...tasks];
     // Mark the task at  index to done
@@ -34,7 +34,7 @@ function App() {
       {/* map the list here */}
       {tasks.map((task,index)=>(
         // for every index pass the task as prop to Task component
-        <Task key={index} index={index} task={task}/>
+        <Task key={index} index={index} task={task} completeTask={completeTask}/>
       ))}
       <TaskForm addNewTask={addNewTask}/>
       </div>
