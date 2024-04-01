@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import {useState} from 'react';
 import Task from './components/Task';
 import './App.css';
+import TaskForm from './components/TaskForm';
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         // for every index pass the task as prop to Task component
         <Task key={index} index={index} task={task}/>
       ))}
+      <TaskForm addNewTask={addNewTask}/>
       </div>
     </div>
   );
