@@ -4,8 +4,6 @@ import Task from './components/Task';
 import './App.css';
 import TaskForm from './components/TaskForm';
 
-
-
 function App() {
   //add state to handle tasks
   const [tasks,setTasks]=useState([
@@ -13,6 +11,13 @@ function App() {
     { text: "take walk after dinner" },
     { text: "brush before sleep" }
   ]);
+  //New tasks with the text form current task added.
+  const addNewTask= text=>{
+    //create new array using spread and add text of new task
+    const newTasks=[...tasks,{text}];
+    //update the tasks state with new Tasks
+    setTasks(newTasks);
+  }
   return (
     <div className="app">
       {/* //list of tasks  */}
